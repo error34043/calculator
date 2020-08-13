@@ -50,3 +50,34 @@ for (let i = 0; i < divideInpArr.length; i++) {
 const quotient = divideInpArr.reduce(divide);
 console.log(quotient);
 */
+
+//Function that takes an operator and 2 numbers and then calls one of the basic functions on the numbers
+const operate = (inp) => {
+    inpArr = inp.split(" ");
+    const numRegex = /[0-9]/ig;
+    let operator = '';
+    for (let i = 0; i < inpArr.length; i++) {
+        if (numRegex.test(inpArr[i])) {
+            inpArr[i] = Number(inpArr[i]);
+        } else {
+            operator = inpArr[i];
+        };
+    };
+    switch(operator) {
+        case '+':
+            return add(inpArr[0],inpArr[2]);
+            break;
+        case '-':
+            return subtract(inpArr[0],inpArr[2]);
+            break;
+        case '*':
+            return mutiply(inpArr[0],inpArr[2]);
+            break;
+        case '/':
+            return divide(inpArr[0],inpArr[2]);
+            break;
+    };
+};
+
+let userAsk = prompt("Test");
+console.log(operate(userAsk));
