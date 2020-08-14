@@ -3,6 +3,7 @@
     padding: 0;
     background-color: #82D4BB;
     font-family: 'Work Sans', sans-serif;
+    color: #0F181A;
 }
 
 .container {
@@ -48,15 +49,13 @@
     align-self: center;
     font-size: 2rem;
     padding-left: 1vw;
-    padding-top: 0.5vw;
 }
 
 #calc-out {
     grid-row: 2 / 3;
     align-self: center;
     justify-self: right;
-    font-size: 4rem;
-    margin-bottom: 0.5vw;
+    font-size: 3rem;
     padding-right: 1vw;
 }
 
@@ -83,12 +82,22 @@
     height: 5vh;
 }
 
+.operator-button:hover {
+    cursor: pointer;
+    background-color: #0F181A;
+    color: #f59f00;
+}
+
+.oclicked {
+    background-color: #0F181A;
+    color: #f59f00;
+}
+
 #subtract {
     padding-bottom: 42px;
 }
 
 #multiply {
-    padding-top: 5px;
     padding-bottom: 35px;
 }
 
@@ -115,6 +124,21 @@
     border-radius: 10px;
     width: 5vw;
     height: 5vh;
+}
+
+.number-button:hover {
+    cursor: pointer;
+    background-color: #0F181A;
+    color: #FFFBFF;
+}
+
+.nclicked {
+    background-color: #0F181A;
+    color: #FFFBFF;
+}
+
+#point {
+    grid-column: 1 / 2;
 }
 
 #zero {
@@ -157,11 +181,30 @@
     grid-column: 3 / 4;
 }
 
+.clear-button {
+    background-color: #CC2936;
+    color: #FFFBFF;
+    font-size: 2rem;
+    border: none;
+    border-radius: 10px;
+    width: 5vw;
+    height: 5vh;
+}
+
+.clear-button:hover {
+    cursor: pointer;
+    background-color: #FFFBFF;
+    color: #CC2936;
+}
+
+.cclicked {
+    background-color: #FFFBFF;
+    color: #CC2936;
+}
+
 #clear {
     grid-column: 4 / 5;
     grid-row: 3 / 4;
-    color: #FFFBFF;
-    background-color: #CC2936;
 }
 
 #equal {
