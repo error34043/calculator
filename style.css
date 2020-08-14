@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #82D4BB;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container {
+    display: grid;
+    width: 1vw;
+    height: 1vh;
+    grid-template: 10vh 85vh 5vh/100vw;
+    justify-items: center;
+    align-items: center;
+}
+
+#calc-shape {
+    grid-row: 2 / 3;
+    width: 30vw;
+    height: 70vh;
+    background-color: #08415C;
+    border: transparent;
+    border-radius: 15px;
+    display: grid;
+    grid-template: 3fr repeat(4,2fr) / repeat(4,1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+#calc-display {
+    margin: 0;
+    padding: 0;
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    background-color: #95C3C6;
+    width: 90%;
+    height: 75%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.calc-display-item {
+    background-color: #95C3C6;
+}
+
+#calc-inp {
+    grid-row: 1 / 2;
+    align-self: center;
+    font-size: 2rem;
+    padding-left: 1vw;
+    padding-top: 0.5vw;
+}
+
+#calc-out {
+    grid-row: 2 / 3;
+    align-self: center;
+    justify-self: right;
+    font-size: 4rem;
+    margin-bottom: 0.5vw;
+    padding-right: 1vw;
+}
+
+#operatorBtns {
+    margin: 0;
+    padding: 0;
+    grid-row: 2 / 3;
+    grid-column: 1 / 5;
+    display: grid;
+    grid-template: auto / repeat(4,1fr);
+    background-color: #08415C;
+    align-items: center;
+    justify-items: center;
+    column-gap: 2vw;
+}
+
+.operator-button {
+    background-color: #f59f00;
+    font-size: 2rem;
+    padding-bottom: 40px;
+    border: none;
+    border-radius: 10px;
+    width: 5vw;
+    height: 5vh;
+}
+
+#subtract {
+    padding-bottom: 42px;
+}
+
+#multiply {
+    padding-top: 5px;
+    padding-bottom: 35px;
+}
+
+#numberBtns {
+    margin: 0;
+    padding: 0;
+    grid-row: 3 / 5;
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template: auto / repeat(4,1fr);
+    background-color: #08415C;
+    align-items: center;
+    justify-items: center;
+    column-gap: 2vw;
+    row-gap: 3vh;
+    margin-left: 7.5vw;
+    margin-top: 12vh;
+}
+
+.number-button {
+    background-color: #FFFBFF;
+    font-size: 2rem;
+    border: none;
+    border-radius: 10px;
+    width: 5vw;
+    height: 5vh;
+}
+
+#zero {
+    grid-column: 2 / 3;
+}
+
+#one {
+    grid-column: 1 / 2;
+}
+
+#two {
+    grid-column: 2 / 3;
+}
+
+#three {
+    grid-column: 3 / 4;
+}
+
+#four {
+    grid-column: 1 / 2;
+}
+
+#five {
+    grid-column: 2 / 3;
+}
+
+#six {
+    grid-column: 3 / 4;
+}
+
+#seven {
+    grid-column: 1 / 2;
+}
+
+#eight {
+    grid-column: 2 / 3;
+}
+
+#nine {
+    grid-column: 3 / 4;
+}
+
+#clear {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+    color: #FFFBFF;
+    background-color: #CC2936;
+}
+
+#equal {
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+}

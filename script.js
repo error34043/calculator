@@ -79,5 +79,5 @@ const operate = (inp) => {
     };
 };
 
-let userAsk = prompt("Test");
-console.log(operate(userAsk));
+//let userAsk = prompt("Test");
+//console.log(operate(userAsk));
