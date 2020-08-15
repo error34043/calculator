@@ -16,35 +16,57 @@ const divide = (accumulator, currentValue) => {
 };
 
 //Function that takes an operator and 2 numbers and then calls one of the basic functions on the numbers
-const operate = (inp) => {
-    inpArr = inp.split(" ");
-    const numRegex = /[0-9]/ig;
-    let operator = '';
-    for (let i = 0; i < inpArr.length; i++) {
-        if (numRegex.test(inpArr[i])) {
-            inpArr[i] = Number(inpArr[i]);
-        } else {
-            operator = inpArr[i];
-        };
-    };
+const singleOp = (inp1,inp2,operator) => {
     switch(operator) {
         case '+':
-            return add(inpArr[0],inpArr[2]);
+            return add(inp1,inp2);
             break;
         case '-':
-            return subtract(inpArr[0],inpArr[2]);
+            return subtract(inp1,inp2);
             break;
         case '*':
-            return multiply(inpArr[0],inpArr[2]);
+            return multiply(inp1,inp2);
             break;
         case '/':
-            return divide(inpArr[0],inpArr[2]);
+            return divide(inp1,inp2);
             break;
     };
 };
 
-//let userAsk = prompt("Test");
-//console.log(operate(userAsk));
+const operate = (inp) => {
+    inpArr = inp.split(" ");
+    const numRegex = /[0-9]/g;
+    const pointRegex = /\./g;
+    let operatorList = [];
+    let numberList = [];
+    console.log(inp);
+    console.log(inp.includes("/ 0"));
+    if (inp.includes("/ 0")) {
+        calcOutDisp.setAttribute('style','font-size: 1rem;');
+        return 'Dividing by zero? How about no.';
+    } else {
+        for (let i = 0; i < inpArr.length; i++) {
+            if (numRegex.test(inpArr[i])) {
+                if (inpArr[i].match(/\./g) !== null && inpArr[i].match(/\./g).length > 1) {
+                    calcOutDisp.setAttribute('style','font-size: 1rem;');
+                    console.log(inpArr[i].match(/\./g).length);
+                    return 'Too many decimal points!';
+                } else {
+                    numberList.push(Number(inpArr[i]));
+                };
+            } else {
+                operatorList.push(inpArr[i]);
+            };
+        };
+        for(let i = 0; i < operatorList.length; i++) {
+            let currentOpInp = numberList.splice(0, 2);
+            console.log(currentOpInp);
+            numberList.unshift(singleOp(currentOpInp[0],currentOpInp[1],operatorList[i]));
+        };
+        const output = Math.round((numberList[0] + Number.EPSILON) * 100) / 100;
+        return output;
+    };
+};
 
 //Wiring up the buttons and display to variables in the script
 const calcInpDisp = document.querySelector('#calc-inp');
@@ -55,6 +77,7 @@ const subtractBtn = document.querySelector('#subtract');
 const multiplyBtn = document.querySelector('#multiply');
 const divideBtn = document.querySelector('#divide');
 
+const deleteBtn = document.querySelector('#delete');
 const clearBtn = document.querySelector('#clear');
 const equalBtn = document.querySelector('#equal');
 
@@ -75,17 +98,22 @@ const clear = () => {
     inpArr = [];
     calcInpDisp.textContent = '';
     calcOutDisp.textContent = '';
+    calcOutDisp.setAttribute('style','font-size: 3rem;');
 };
 
 const equal = () => {
     inp = inpArr.join('');
-    if (operate(inp)) {
+    if (operate(inp) === Infinity) {
+        calcOutDisp.setAttribute('style','font-size: 1rem;');
+        calcOutDisp.textContent = 'Dividing by zero? How about no.';
+    } else if (operate(inp)) {
         calcOutDisp.textContent = operate(inp);
     } else {
         if (operate(inp) === 0) {
             calcOutDisp.textContent = operate(inp);
         } else {
-            calcOutDisp.textContent = '?';
+            calcOutDisp.setAttribute('style','font-size: 1rem;');
+            calcOutDisp.textContent = 'Unexpected input. Please try again.';
         };
     };
 };
@@ -210,6 +238,11 @@ const nineBtnFunc = () => {
     calcInpDisp.textContent += '9';
 };
 
+const deleteBtnFunc = () => {
+    inpArr.pop();
+    calcInpDisp.textContent = calcInpDisp.textContent.slice(0,-1);
+};
+
 let inpArr = [];
 
 //Adding functional event listeners to all appropriate buttons and keys
@@ -228,10 +261,10 @@ fiveBtn.addEventListener('click', fiveBtnFunc);
 sixBtn.addEventListener('click', sixBtnFunc);
 sevenBtn.addEventListener('click', sevenBtnFunc);
 eightBtn.addEventListener('click', eightBtnFunc);
-nineBtn.addEventListener('click', () => nineBtnFunc);
+nineBtn.addEventListener('click', nineBtnFunc);
 
+deleteBtn.addEventListener('click', deleteBtnFunc);
 clearBtn.addEventListener('click', clear);
-
 equalBtn.addEventListener('click', equal);
 
 //Testing
@@ -275,10 +308,14 @@ document.addEventListener('keydown', e => {
             document.addEventListener('keyup', () => divideBtn.classList.remove("oclicked"));
             break;
         case 'KeyC':
-        case 'Backspace':
             clear();
             clearBtn.classList.add("cclicked");
             document.addEventListener('keyup', () => clearBtn.classList.remove("cclicked"));
+            break;
+        case 'Backspace':
+            deleteBtnFunc();
+            deleteBtn.classList.add("cclicked");
+            document.addEventListener('keyup', () => deleteBtn.classList.remove("cclicked"));
             break;
         case 'Period':
             pointBtnFunc();
@@ -337,3 +374,5 @@ document.addEventListener('keydown', e => {
             break;
     };
 });
+
+document.addEventListener('keydown', e => console.log(e.code));

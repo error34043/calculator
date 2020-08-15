@@ -10,15 +10,85 @@
     display: grid;
     width: 1vw;
     height: 1vh;
-    grid-template: 10vh 85vh 5vh/100vw;
+    grid-template: 17vh 78vh 5vh/25vw 50vw 25vw;
     justify-items: center;
     align-items: center;
 }
 
+header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+    width: 100%;
+    height: 100%;
+    background-color: #CC2936;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+#title {
+    background-color: #CC2936;
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: 5pt;
+    color: #FFFBFF;
+    margin: 0;
+    padding: 0;
+}
+
+#subtitle {
+    background-color: #CC2936;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2pt;
+    color: #FFFBFF;
+    padding-bottom: 1vh;
+}
+
+#quotes {
+    padding-left: 68.3px;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    font-size: 1.5rem;
+    z-index: -1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#einstein {
+    margin: 0;
+    padding: 0;
+    border: solid;
+    margin-bottom: 20px;
+    grid-row: 1 / 2;
+    background-color: #FFFBFF;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 3fr 1fr;
+}
+
+#equotetext{
+    grid-row: 1 / 2;
+    background-color: #FFFBFF;
+}
+
+#equoter {
+    grid-row: 2 / 3;
+    background-color: #FFFBFF;
+}
+
+#mckellar {
+    grid-row: 2 / 3;
+    background-color: #FFFBFF;
+}
+
 #calc-shape {
     grid-row: 2 / 3;
-    width: 30vw;
-    height: 70vh;
+    grid-column: 2 / 3;
+    width: 409.8px;
+    height: 537.6px;
     background-color: #08415C;
     border: transparent;
     border-radius: 15px;
@@ -48,7 +118,7 @@
     grid-row: 1 / 2;
     align-self: center;
     font-size: 2rem;
-    padding-left: 1vw;
+    padding-left: 13.66px;
 }
 
 #calc-out {
@@ -56,7 +126,7 @@
     align-self: center;
     justify-self: right;
     font-size: 3rem;
-    padding-right: 1vw;
+    padding-right: 13.66px;
 }
 
 #operatorBtns {
@@ -69,7 +139,7 @@
     background-color: #08415C;
     align-items: center;
     justify-items: center;
-    column-gap: 2vw;
+    column-gap: 27.32px;
 }
 
 .operator-button {
@@ -78,8 +148,8 @@
     padding-bottom: 40px;
     border: none;
     border-radius: 10px;
-    width: 5vw;
-    height: 5vh;
+    width: 68.3px;
+    height: 38.4px;
 }
 
 .operator-button:hover {
@@ -98,23 +168,26 @@
 }
 
 #multiply {
-    padding-bottom: 35px;
+    padding-bottom: 42px;
+}
+
+#divide {
+    padding-bottom: 42px;
 }
 
 #numberBtns {
     margin: 0;
     padding: 0;
     grid-row: 3 / 5;
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     display: grid;
     grid-template: auto / repeat(4,1fr);
     background-color: #08415C;
     align-items: center;
     justify-items: center;
-    column-gap: 2vw;
-    row-gap: 3vh;
-    margin-left: 7.5vw;
-    margin-top: 12vh;
+    column-gap: 27.32px;
+    row-gap: 23.04px;
+    margin-top: 92.16px;
 }
 
 .number-button {
@@ -122,8 +195,8 @@
     font-size: 2rem;
     border: none;
     border-radius: 10px;
-    width: 5vw;
-    height: 5vh;
+    width: 68.3px;
+    height: 38.4px;
 }
 
 .number-button:hover {
@@ -187,8 +260,8 @@
     font-size: 2rem;
     border: none;
     border-radius: 10px;
-    width: 5vw;
-    height: 5vh;
+    width: 68.3px;
+    height: 38.4px;
 }
 
 .clear-button:hover {
@@ -202,6 +275,11 @@
     color: #CC2936;
 }
 
+#delete {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
 #clear {
     grid-column: 4 / 5;
     grid-row: 3 / 4;
@@ -210,4 +288,38 @@
 #equal {
     grid-column: 4 / 5;
     grid-row: 4 / 5;
+}
+
+footer {
+    grid-row: 3 / 4;
+    grid-column: 1 / 4;
+    width: 100%;
+    height: 100%;
+    background-color: #f59f00;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+#bottombar {
+    z-index: -1;
+}
+
+footer p {
+    background-color: #f59f00;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #FFFBFF;
+}
+
+footer a {
+    background-color: #f59f00;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #FFFBFF;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #CC2936;
 }

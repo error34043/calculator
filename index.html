@@ -10,6 +10,23 @@
     </head>
     <body>
         <div class="container">
+            <header id="topbar">
+                <p id="title">Calsie</p>
+                <p id="subtitle">An online calculator</p>
+            </header>
+
+            <div id="quotes">
+                <div id="einstein">
+                    <p id="equotetext">Pure mathematics is, in its own way, the poetry of logical ideas.</p>
+                    <p id="equoter">- Albert Einstein</p>
+                </div>
+
+                <div id="mckellar">
+                    <p id="mquotetext">Math is the only place where truth and beauty mean the same thing.</p>
+                    <p id="mquoter">- Danica McKellar</p>
+                </div>
+            </div>
+
             <div id="calc-shape">
                 <div id="calc-display">
                     <div class="calc-display-item" id="calc-inp"></div>
@@ -34,10 +51,15 @@
                     <button class="number-button" id="point">.</button>
                     <button class="number-button" id="zero">0</button>
 
+                    <button class="clear-button" id="delete">Del</button>
                     <button class="clear-button" id="clear">C</button>
                     <button class="number-button" id="equal">=</button>
                 </div>
             </div>
+
+            <footer id="bottombar">
+                <p>A project by Sanjana H. Check out the source code <a href="https://github.com/error34043/calculator">here</a>.</p>
+            </footer>
         </div>
 
         <script type="text/javascript" src="script.js"></script>
