@@ -10,14 +10,13 @@
     display: grid;
     width: 1vw;
     height: 1vh;
-    grid-template: 17vh 78vh 5vh/25vw 50vw 25vw;
+    grid-template: 17vh 78vh 5vh/100vw;
     justify-items: center;
     align-items: center;
 }
 
 header {
     grid-row: 1 / 2;
-    grid-column: 1 / 4;
     width: 100%;
     height: 100%;
     background-color: #CC2936;
@@ -46,47 +45,8 @@ header {
     padding-bottom: 1vh;
 }
 
-#quotes {
-    padding-left: 68.3px;
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
-    font-size: 1.5rem;
-    z-index: -1;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-}
-
-#einstein {
-    margin: 0;
-    padding: 0;
-    border: solid;
-    margin-bottom: 20px;
-    grid-row: 1 / 2;
-    background-color: #FFFBFF;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-rows: 3fr 1fr;
-}
-
-#equotetext{
-    grid-row: 1 / 2;
-    background-color: #FFFBFF;
-}
-
-#equoter {
-    grid-row: 2 / 3;
-    background-color: #FFFBFF;
-}
-
-#mckellar {
-    grid-row: 2 / 3;
-    background-color: #FFFBFF;
-}
-
 #calc-shape {
     grid-row: 2 / 3;
-    grid-column: 2 / 3;
     width: 409.8px;
     height: 537.6px;
     background-color: #08415C;
@@ -292,7 +252,6 @@ header {
 
 footer {
     grid-row: 3 / 4;
-    grid-column: 1 / 4;
     width: 100%;
     height: 100%;
     background-color: #f59f00;
