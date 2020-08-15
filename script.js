@@ -103,7 +103,10 @@ const clear = () => {
 
 const equal = () => {
     inp = inpArr.join('');
-    if (operate(inp) === Infinity) {
+    if (calcInpDisp.textContent==='') {
+        calcOutDisp.setAttribute('style','font-size: 1rem;');
+        calcOutDisp.textContent = 'No input given.';
+    } else if (operate(inp) === Infinity) {
         calcOutDisp.setAttribute('style','font-size: 1rem;');
         calcOutDisp.textContent = 'Dividing by zero? How about no.';
     } else if (operate(inp)) {
@@ -120,7 +123,14 @@ const equal = () => {
 
 const addBtnFunc = () => {
     if (calcOutDisp.textContent) {
-        clear();
+        inpArr = [];
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
+        calcOutDisp.textContent = '';
+        calcOutDisp.setAttribute('style','font-size: 3rem;');
+    } else if (!calcInpDisp.textContent) {
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
     };
     inpArr.push(' + ');
     calcInpDisp.textContent += '+';
@@ -128,7 +138,14 @@ const addBtnFunc = () => {
 
 const subtractBtnFunc = () => {
     if (calcOutDisp.textContent) {
-        clear();
+        inpArr = [];
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
+        calcOutDisp.textContent = '';
+        calcOutDisp.setAttribute('style','font-size: 3rem;');
+    } else if (!calcInpDisp.textContent) {
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
     };
     inpArr.push(' - ');
     calcInpDisp.textContent += '-';
@@ -136,7 +153,14 @@ const subtractBtnFunc = () => {
 
 const multiplyBtnFunc = () => {
     if (calcOutDisp.textContent) {
-        clear();
+        inpArr = [];
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
+        calcOutDisp.textContent = '';
+        calcOutDisp.setAttribute('style','font-size: 3rem;');
+    } else if (!calcInpDisp.textContent) {
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
     };
     inpArr.push(' * ');
     calcInpDisp.textContent += 'x';
@@ -144,7 +168,14 @@ const multiplyBtnFunc = () => {
 
 const divideBtnFunc = () => {
     if (calcOutDisp.textContent) {
-        clear();
+        inpArr = [];
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
+        calcOutDisp.textContent = '';
+        calcOutDisp.setAttribute('style','font-size: 3rem;');
+    } else if (!calcInpDisp.textContent) {
+        inpArr.push('0');
+        calcInpDisp.textContent = '0';
     };
     inpArr.push(' / ');
     calcInpDisp.textContent += '÷';
@@ -378,5 +409,3 @@ document.addEventListener('keydown', e => {
             break;
     };
 });
-
-document.addEventListener('keydown', e => console.log(e.code));
