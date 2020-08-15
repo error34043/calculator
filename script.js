@@ -239,8 +239,12 @@ const nineBtnFunc = () => {
 };
 
 const deleteBtnFunc = () => {
-    inpArr.pop();
-    calcInpDisp.textContent = calcInpDisp.textContent.slice(0,-1);
+    if (calcOutDisp.textContent) {
+        clear();
+    } else {
+        inpArr.pop();
+        calcInpDisp.textContent = calcInpDisp.textContent.slice(0,-1);
+    };
 };
 
 let inpArr = [];
